@@ -23,7 +23,7 @@ export default function InvestmentHighlights() {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-off-white mb-6">
             Investment Highlights
           </h2>
-          <div className="w-24 h-[1px] bg-bronze mx-auto mb-6"></div>
+          <div className="w-24 h-[1px] bg-bronze mx-auto"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16">
@@ -36,7 +36,7 @@ export default function InvestmentHighlights() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-bronze mb-6">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-bronze mb-6 gap-12">
                 {stat.number}
               </div>
               <div className="w-16 h-[1px] bg-bronze/30 mx-auto mb-4"></div>
