@@ -65,7 +65,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#process"
+                  href="/process"
                   className="text-warm-gray hover:text-bronze transition-colors"
                 >
                   Process

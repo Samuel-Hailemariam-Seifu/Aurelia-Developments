@@ -52,7 +52,7 @@ export default function Navbar() {
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-bronze group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
-              href="/#process"
+              href="/process"
               className="text-sm text-warm-gray hover:text-off-white transition-colors relative group"
             >
               Process
