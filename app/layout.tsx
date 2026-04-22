@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "AURELIA DEVELOPMENTS | Architecting Landmark Living",
   description: "Luxury residential towers and commercial developments. Investment-grade property in the world's most prestigious locations.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
