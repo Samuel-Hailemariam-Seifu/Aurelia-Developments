@@ -1,90 +1,150 @@
-# AURELIA DEVELOPMENTS - Premium Real Estate Developer Website
+# Aurelia Developments
 
-A cinematic, architectural website for a luxury real estate developer built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+A cinematic, luxury real estate website built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
-## Design Philosophy
+This project is structured as a polished marketing site for a fictional premium developer brand, with separate pages for developments, company story, and contact inquiries.
 
-- **Cinematic & Architectural**: Full-screen imagery, dramatic layouts, luxury aesthetic
-- **Minimal & High-Contrast**: Deep charcoal backgrounds, bronze accents, generous whitespace
-- **Image-Dominant**: Large immersive images with hover zoom effects
-- **Grid-Based**: Clean geometric layouts with strong visual hierarchy
+## Live project goals
 
-## Tech Stack
+- Present a high-end brand with image-heavy storytelling
+- Showcase featured properties and detailed development pages
+- Provide a reusable foundation for agencies, freelancers, and portfolio work
+- Demonstrate a clean App Router architecture with animated UI sections
 
-- Next.js 14 (App Router)
+## Tech stack
+
+- Next.js 16 (App Router)
+- React 18
 - TypeScript
-- Tailwind CSS
-- Framer Motion (cinematic animations)
-- Lucide React (icons)
+- Tailwind CSS 3
+- Framer Motion
+- Lucide React
 
-## Color Palette
+## Routes
 
-- Deep Charcoal: #0E0E0E (background)
-- Warm Gray: #8B8B8B (text)
-- Off-White: #F5F5F5 (headings)
-- Bronze Accent: #B08D57 (highlights)
+- `/` - Landing page with hero, featured developments, about, stats, process, testimonials, and CTA
+- `/developments` - Full developments listing grid
+- `/developments/[id]` - Dynamic detail page per development
+- `/about` - Brand story, values, and milestones
+- `/contact` - Inquiry form and office information
 
-## Typography
+## Component architecture
 
-- Serif: Playfair Display (large headings)
-- Sans-serif: Inter (body text)
+### Home page sections
 
-## Getting Started
+- `Navbar`
+- `Hero`
+- `FeaturedDevelopments`
+- `About`
+- `InvestmentHighlights`
+- `Process`
+- `Testimonials`
+- `CTA`
+- `Footer`
+
+### Shared page shell
+
+- `PageLayout` is used by inner pages (`about`, `contact`, `developments`, `developments/[id]`) to keep a consistent top navigation, spacing, and footer.
+
+## Styling and design system
+
+- Primary background: `#0E0E0E` (charcoal)
+- Primary text: `#F5F5F5` (off-white)
+- Secondary text: `#8B8B8B` (warm gray)
+- Accent: `#B08D57` (bronze)
+- Display font: Playfair Display
+- Body/UI font: Inter
+- Section spacing token: `py-section` (`7rem`)
+
+Global styles are defined in `app/globals.css`, and theme extensions are in `tailwind.config.ts`.
+
+## Content model (current state)
+
+- Development data is currently hardcoded in page/component files.
+- Images are loaded from Unsplash remote URLs.
+- `next.config.js` currently allows `images.unsplash.com`.
+- Contact form submits to a local handler and logs data to console (no backend integration yet).
+
+## Getting started
+
+### 1) Install dependencies
 
 ```bash
-# Install dependencies
 npm install
+```
 
-# Run development server
+### 2) Run the dev server
+
+```bash
 npm run dev
+```
 
-# Build for production
+Open `http://localhost:3000`.
+
+### 3) Build for production
+
+```bash
 npm run build
-
-# Start production server
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+### 4) Lint
 
-## Project Structure
-
+```bash
+npm run lint
 ```
+
+## Project structure
+
+```text
+.
 ├── app/
+│   ├── about/page.tsx
+│   ├── contact/page.tsx
+│   ├── developments/
+│   │   ├── [id]/page.tsx
+│   │   └── page.tsx
 │   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
-│   ├── Navbar.tsx
-│   ├── Hero.tsx
-│   ├── FeaturedDevelopments.tsx
 │   ├── About.tsx
-│   ├── InvestmentHighlights.tsx
-│   ├── Process.tsx
-│   ├── Testimonials.tsx
 │   ├── CTA.tsx
-│   └── Footer.tsx
-└── ...
+│   ├── FeaturedDevelopments.tsx
+│   ├── Footer.tsx
+│   ├── Hero.tsx
+│   ├── InvestmentHighlights.tsx
+│   ├── Navbar.tsx
+│   ├── PageLayout.tsx
+│   ├── Process.tsx
+│   └── Testimonials.tsx
+├── next.config.js
+├── package.json
+└── tailwind.config.ts
 ```
 
-## Features
+## Notes for customization
 
-- Full-screen cinematic hero with parallax effect
-- Sticky transparent navbar with scroll effects
-- Featured developments grid with hover zoom
-- Two-column editorial about section
-- Investment highlights statistics
-- Horizontal process timeline
-- Minimal testimonials section
-- CTA section with architectural background
-- Multi-column footer
+- Replace hardcoded development arrays with CMS or database content
+- Connect the contact form to an API route, CRM, or email provider
+- Swap placeholder contact details and brand copy with your business data
+- Consider migrating to `next/font` for self-hosted font loading
+- Update Next.js image config from `images.domains` to `images.remotePatterns` (recommended in Next.js 16)
 
-## Design Notes
+## Deployment
 
-- Full-screen hero (100vh)
-- Large vertical spacing (py-section = 7rem)
-- Massive whitespace throughout
-- Thin bronze accent dividers
-- Image zoom on hover effects
-- Subtle parallax animations
-- Cinematic, luxury feel
+Deploy to any Next.js-compatible platform. Vercel is the fastest path:
+
+1. Push the repository to GitHub
+2. Import into Vercel
+3. Deploy with default Next.js settings
+
+## Open source and licensing
+
+This repository currently does not include a `LICENSE` file.
+
+If you plan to publish it as open source on YouTube/LinkedIn/GitHub, add a license in the root (for example MIT) so reuse terms are explicit.
+
+## Contributing
+
+Issues and pull requests are welcome for bug fixes, UI improvements, accessibility upgrades, and architecture cleanup.
