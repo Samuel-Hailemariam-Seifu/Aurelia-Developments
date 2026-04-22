@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from "react";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
 import Image from "next/image";
@@ -111,14 +112,67 @@ const developments: Record<string, any> = {
       "Interior Design": "TBD",
     },
   },
+  "5": {
+    name: "Aurelia Bay",
+    location: "Dubai, Palm Jumeirah",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    type: "Luxury Residential",
+    status: "Under Construction",
+    units: "95",
+    year: "2025",
+    description:
+      "Aurelia Bay is an exclusive beachfront development on Palm Jumeirah, designed for residents seeking privacy, uninterrupted sea views, and resort-level amenities in one of Dubai's most sought-after waterfront addresses.",
+    features: [
+      "Direct beachfront access",
+      "Private resident lounges",
+      "Infinity pool overlooking the Gulf",
+      "Dedicated wellness and spa facilities",
+      "Yacht concierge services",
+      "Secure private parking",
+    ],
+    specifications: {
+      "Residence Types": "2-5 bedroom apartments, penthouses",
+      "Total Units": "95",
+      "Completion": "2025",
+      "Architect": "KPF",
+      "Interior Design": "Yabu Pushelberg",
+    },
+  },
+  "6": {
+    name: "Aurelia Gardens",
+    location: "London, Kensington",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80",
+    type: "Luxury Residential",
+    status: "Completed",
+    units: "60",
+    year: "2024",
+    description:
+      "Aurelia Gardens is a boutique collection of refined residences in Kensington, blending classic London architecture with contemporary interiors and curated services for modern urban living.",
+    features: [
+      "Boutique low-density community",
+      "Landscaped private gardens",
+      "24/7 concierge and security",
+      "Private wellness suite",
+      "Residents' business lounge",
+      "Smart home integration",
+    ],
+    specifications: {
+      "Residence Types": "2-4 bedroom residences, duplexes",
+      "Total Units": "60",
+      "Completion": "2024",
+      "Architect": "Allies and Morrison",
+      "Interior Design": "Studio Ashby",
+    },
+  },
 };
 
 export default function DevelopmentDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const development = developments[params.id];
+  const { id } = use(params);
+  const development = developments[id];
 
   if (!development) {
     return (
